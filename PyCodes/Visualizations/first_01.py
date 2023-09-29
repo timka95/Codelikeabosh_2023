@@ -4,7 +4,7 @@ from matplotlib.animation import FuncAnimation
 
 
 # Read the CSV file into a DataFrame
-data = pd.read_csv('../DataFiles/CSV/normalized_data.csv')
+data = pd.read_csv('../../DataFiles/CSV/normalized_data.csv')
 
 
 # Create a figure and axis
