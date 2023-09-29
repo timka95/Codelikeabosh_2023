@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Load your data from a CSV file (replace 'your_data.csv' with your actual data file)
-data = pd.read_csv('/Users/timeanemet/Desktop/Hachatlon/DevelopmentData.xlsx - Sheet1.csv')
+# Read the CSV file into a DataFrame
+data = pd.read_csv('../../DataFiles/CSV/normalized_data.csv')
 
 # Extract X and Y data
 x_data = data["FourthObjectDistance_X"]

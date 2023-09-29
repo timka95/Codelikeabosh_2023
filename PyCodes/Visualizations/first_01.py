@@ -2,10 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-
 # Read the CSV file into a DataFrame
 data = pd.read_csv('../../DataFiles/CSV/normalized_data.csv')
-
 
 # Create a figure and axis
 fig, ax = plt.subplots()
