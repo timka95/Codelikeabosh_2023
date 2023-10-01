@@ -6,7 +6,7 @@ from matplotlib.patches import Rectangle
 
 # Load your data from a CSV file (replace 'your_data.csv' with your actual data file)
 data = pd.read_csv('/Users/timeanemet/Desktop/Hachatlon/normalized_data_2.csv')
-
+vehicle_position_data = []
 # Initialize the initial position and orientation
 x = [0.0]  # Initial x position
 y = [0.0]  # Initial y position
@@ -100,6 +100,13 @@ def update(frame):
 
         vehicle_dot.set_offsets((x[frame], y[frame]))
 
+        vehicle_position_data.append((x[frame], y[frame]))
+
+
+        
+
+        
+
        
 
 
@@ -159,7 +166,9 @@ def update(frame):
     ax.set_title(f"Paths at Timestamp: {timestamps[frame]}")
 
     
-
+# Save the vehicle position data to a CSV file
+    vehicle_position_df = pd.DataFrame(vehicle_position_data, columns=["x", "y"])
+    vehicle_position_df.to_csv("/Users/timeanemet/Desktop/Hachatlon/vehicle_pos2.csv", index=False)
     
 
     return object_scatter + [vehicle_line, vehicle_rect]
@@ -168,7 +177,7 @@ def update(frame):
 
 
 # Create the animation
-animation = FuncAnimation(fig, update, frames=len(speed), interval=10, blit=False)  # Set blit to False
+animation = FuncAnimation(fig, update, frames=len(speed), interval=3, blit=False)  # Set blit to False
 
 # Display the animation
 plt.grid(True)  # Add the grid back

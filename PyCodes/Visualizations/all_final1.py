@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # Load your data from a CSV file (replace 'your_data.csv' with your actual data file)
-data = pd.read_csv('/Users/timeanemet/Desktop/Hachatlon/normalized_data_2.csv')
+data = pd.read_csv('D:/Bosch2023/DataFiles/CSV/normalized_data.csv')
 
 # Initialize the initial position and orientation
 x = [0.0]  # Initial x position
@@ -44,7 +44,10 @@ vehicle_dot = ax.scatter([], [], label="Vehicle", marker='s', color='red')  # Do
 # Function to update the animation frame
 def update(frame):
     if frame > 0:
+        # frame += 3
         # Calculate change in position and orientation for the vehicle
+        delta_x = speed[frame] * np.cos(theta[frame - 1]) * dt
+        delta_y = speed[frame] * np.sin(theta[frame - 1]) * dt
         delta_x = speed[frame] * np.cos(theta[frame - 1]) * dt
         delta_y = speed[frame] * np.sin(theta[frame - 1]) * dt
         delta_theta = yaw_rate[frame] * dt
